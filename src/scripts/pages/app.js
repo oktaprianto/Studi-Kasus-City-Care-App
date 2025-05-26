@@ -83,6 +83,9 @@ export default class App {
 
     // Get page instance
     const page = route();
+    if (!page) {
+      location.reload();
+    }
 
     this.#content.innerHTML = await page.render();
     await page.afterRender();
